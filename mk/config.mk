@@ -1,0 +1,1 @@
+CPPFLAGS += -DPQM4
