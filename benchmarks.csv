@@ -1,0 +1,320 @@
+Speed Evaluation,,,,,,,,,,
+Key Encapsulation Schemes,,,,,,,,,,
+Scheme,Implementation,Key Generation [cycles] (mean),Key Generation [cycles] (min),Key Generation [cycles] (max),Encapsulation [cycles] (mean),Encapsulation [cycles] (min),Encapsulation [cycles] (max),Decapsulation [cycles] (mean),Decapsulation [cycles] (min),Decapsulation [cycles] (max)
+bikel1 (100 executions),m4f,24974536,24950520,24991477,3394030,3378190,3414910,51214664,51198795,51235513
+bikel1 (100 executions),opt,68198074,68181729,68218850,5085537,5068825,5101896,121429912,121416187,121446269
+hqc-rmrs-128 (100 executions),clean,2883811,2850356,3090278,5236720,5150902,5554288,7594631,7482072,7890446
+kyber1024 (100 executions),clean,1649604,1646417,1686328,2016366,2013177,2053070,2159906,2156716,2196609
+kyber1024 (100 executions),m4fspeed,1122936,1120610,1147966,1315737,1313449,1340766,1209901,1207648,1234899
+kyber1024 (100 executions),m4fstack,1126561,1124115,1138795,1323943,1321497,1336212,1219060,1216614,1231295
+kyber1024-90s (100 executions),clean,3008837,3007295,3024024,3275730,3274235,3290907,3516691,3515163,3531901
+kyber1024-90s (100 executions),m4fspeed,973196,961657,978853,1068184,1056648,1073886,1059775,1048239,1065477
+kyber1024-90s (100 executions),m4fstack,979692,972492,985031,1079272,1072072,1084611,1071817,1064616,1077155
+kyber512 (100 executions),clean,636181,635670,648917,843945,843433,856680,940320,939808,953055
+kyber512 (100 executions),m4fspeed,434438,433217,446786,530469,529247,542816,476712,475491,489060
+kyber512 (100 executions),m4fstack,433718,433191,446122,531676,531150,544080,478166,477640,490570
+kyber512-90s (100 executions),clean,948446,947802,964084,1112852,1112208,1128491,1261630,1260986,1277269
+kyber512-90s (100 executions),m4fspeed,369011,364769,373816,421685,417443,426490,420333,416092,425139
+kyber512-90s (100 executions),m4fstack,369736,361461,370708,424339,416065,425312,423234,414960,424207
+kyber768 (100 executions),clean,1059876,1057827,1071809,1352934,1350884,1364866,1471055,1469005,1482987
+kyber768 (100 executions),m4fspeed,706531,703969,718271,863343,860765,875091,783369,780788,795114
+kyber768 (100 executions),m4fstack,707275,705435,719983,867363,865520,880070,788053,786210,800760
+kyber768-90s (100 executions),clean,1816649,1815810,1831510,2032562,2031722,2047390,2225597,2224757,2240425
+kyber768-90s (100 executions),m4fspeed,614455,610716,619096,694064,690330,698723,688999,685265,693658
+kyber768-90s (100 executions),m4fstack,617709,613688,622666,700599,696577,705555,696202,692181,701159
+Signature Schemes,,,,,,,,,,
+Scheme,Implementation,Key Generation [cycles] (mean),Key Generation [cycles] (min),Key Generation [cycles] (max),Sign [cycles] (mean),Sign [cycles] (min),Sign [cycles] (max),Verify [cycles] (mean),Verify [cycles] (min),Verify [cycles] (max)
+dilithium2 (10000 executions),clean,1944539,1890031,1991828,7144383,3140649,63849339,2064129,2063522,2064634
+dilithium2 (10000 executions),m4f,1597999,1543482,1644972,4111596,1975193,28355968,1571804,1571197,1572305
+dilithium2aes (10000 executions),clean,4995899,4936813,5118217,11648989,6130462,61958375,4669616,4610387,4791733
+dilithium3 (10000 executions),clean,3365142,3363198,3378304,11634591,4892049,79793644,3430286,3429812,3430778
+dilithium3 (10000 executions),m4f,2830024,2828027,2832150,6588465,3224221,46880624,2691283,2690800,2691739
+dilithium3aes (10000 executions),clean,8980662,8870698,9135481,19843507,10319280,112310317,8314038,8205198,8468692
+dilithium5 (10000 executions),m4f,4826422,4737706,4914744,8779067,5416181,52012847,4705693,4705090,4706259
+falcon-1024 (100 executions),clean,589059133,334912351,1243184474,133598726,133189548,133921649,1547336,1546772,1548051
+falcon-1024 (100 executions),m4-ct,480071949,271647441,1227690897,85125001,84882111,85556430,994972,983996,1002867
+falcon-1024 (100 executions),opt-ct,437448136,271659962,1092676507,85113093,84848956,85473992,994270,984187,1002619
+falcon-1024 (100 executions),opt-leaktime,413908640,243261195,1126577305,76314462,75745413,76892801,994634,982708,1002471
+falcon-512 (100 executions),clean,217740948,129494100,511780471,61102456,60847251,61330321,774876,774536,775376
+falcon-512 (100 executions),m4-ct,155757768,101804738,436771421,38979435,38774219,39146132,481452,472089,488157
+falcon-512 (100 executions),opt-ct,169979748,101804734,511094390,38995196,38771533,39280349,481457,472109,488208
+falcon-512 (100 executions),opt-leaktime,154344796,89719505,442643356,35503133,35166340,35923860,480806,472450,489614
+falcon-512-tree (100 executions),m4-ct,179772454,116934668,497881688,17649735,17489319,17847797,480619,471367,488548
+falcon-512-tree (100 executions),opt-ct,185495778,116934665,591766146,17664284,17480589,17824518,482085,472168,488509
+falcon-512-tree (100 executions),opt-leaktime,157683545,101416387,370593247,19162650,18816478,19426978,481577,472170,488230
+sphincs-haraka-128f-robust (3 executions),clean,106427973,106427961,106427997,2699060638,2698241211,2699997157,174647895,173477158,176638141
+sphincs-haraka-128f-simple (3 executions),clean,74934480,74934458,74934492,1887299882,1887134522,1887382565,118143703,113925327,123851044
+sphincs-haraka-128s-robust (3 executions),clean,6775943571,6775943546,6775943591,53822326627,53821272834,53824434213,68158360,65114417,72841330
+sphincs-haraka-128s-simple (3 executions),clean,4758339537,4758339511,4758339556,37472069032,37470580002,37474550750,44603270,44272388,44768737
+sphincs-haraka-192f-robust (3 executions),clean,157886973,157886961,157886995,4729109673,4724305900,4731687311,261039514,258813178,263734554
+sphincs-haraka-192f-simple (3 executions),clean,110403519,110403498,110403532,3167446164,3164466253,3169681094,171820185,169915924,174138430
+sphincs-haraka-192s-robust (3 executions),clean,10070301104,10070301092,10070301120,105836052151,105833943123,105838864162,102385564,100510789,104729057
+sphincs-haraka-192s-simple (3 executions),clean,7028359469,7028359462,7028359475,69349184156,69348190870,69350922453,64929339,63356226,65840010
+sphincs-haraka-256f-robust (3 executions),clean,422110917,422110915,422110921,9925037310,9919761990,9929258109,282995607,280533063,286865365
+sphincs-haraka-256f-simple (3 executions),clean,293499115,293499091,293499129,6701863848,6699462526,6705176025,183796029,182221816,186447361
+sphincs-haraka-256s-robust (3 executions),clean,6739159318,6739159309,6739159328,105302624797,105300748903,105304266285,156467817,154826875,159398072
+sphincs-haraka-256s-simple (3 executions),clean,4683144675,4683144642,4683144705,69202732323,69201324370,69205052507,101719411,100063540,104037675
+sphincs-sha256-128f-robust (3 executions),clean,29123270,29123249,29123282,716257523,715884705,716674437,42248922,41497196,42869922
+sphincs-sha256-128f-simple (3 executions),clean,15388375,15388352,15388387,382533954,382308022,382976925,21150671,20677650,21741991
+sphincs-sha256-128s-robust (3 executions),clean,1864047221,1864042048,1864050532,14012634889,14012400685,14012822953,14847302,14422375,15206848
+sphincs-sha256-128s-simple (3 executions),clean,985367046,985355790,985385031,7495603716,7495252193,7496247958,7165875,6861584,7419441
+sphincs-sha256-192f-robust (3 executions),clean,43116184,43116173,43116205,1195381634,1193980671,1196819904,64857703,64364605,65153579
+sphincs-sha256-192f-simple (3 executions),clean,22645923,22645911,22645947,639321913,639157877,639638579,32940330,31955780,33534443
+sphincs-sha256-192s-robust (3 executions),clean,2758781668,2758721187,2758814880,25556205325,25555467827,25556897376,23195383,22702335,23589803
+sphincs-sha256-192s-simple (3 executions),clean,1450073477,1449766386,1450529270,13764196955,13762891584,13765362825,11763703,11695761,11899525
+sphincs-sha256-256f-robust (3 executions),clean,158034870,158034868,158034873,3305447599,3303450474,3306582779,94366505,92087788,96189482
+sphincs-sha256-256f-simple (3 executions),clean,59808433,59807808,59808748,1281329322,1280242352,1282332972,32947097,32522594,33490507
+sphincs-sha256-256s-robust (3 executions),clean,2524393357,2524337328,2524432487,31056826302,31055874069,31057485164,47434569,46022129,48212821
+sphincs-sha256-256s-simple (3 executions),clean,952799879,952642357,953062293,12304132668,12303657740,12304436252,16715346,16326849,17137621
+sphincs-shake256-128f-robust (3 executions),clean,113347070,113347058,113347093,2788974930,2787812662,2790137173,158730948,156406568,160667913
+sphincs-shake256-128f-simple (3 executions),clean,59759081,59759080,59759082,1483676214,1483213924,1484204563,83065165,81414021,84584221
+sphincs-shake256-128s-robust (3 executions),clean,7255773038,7255773014,7255773057,54573950176,54572529688,54575241560,53615181,51549111,55423008
+sphincs-shake256-128s-simple (3 executions),clean,3825341548,3825341531,3825341564,29086410120,29085749525,29087533088,29495105,28966755,30155531
+sphincs-shake256-192f-robust (3 executions),clean,167154323,167154303,167154334,4461897673,4458767619,4464636487,240590626,238634394,243329332
+sphincs-shake256-192f-simple (3 executions),clean,88333405,88333405,88333406,2409188992,2408787940,2409991046,123334622,122866683,123668857
+sphincs-shake256-192s-robust (3 executions),clean,10698254977,10698254964,10698254997,93298513700,93295644767,93301121760,81201582,77549977,83809891
+sphincs-shake256-192s-simple (3 executions),clean,5652907918,5652907897,5652907934,50824666973,50823330463,50826137107,41687543,40818602,42623345
+sphincs-shake256-256f-robust (3 executions),clean,444922977,444922967,444922998,8993352645,8987821428,9000464222,243254884,240752880,244703467
+sphincs-shake256-256f-simple (3 executions),clean,235448503,235448502,235448505,4865464381,4864247499,4867289711,127387108,125561248,129010103
+sphincs-shake256-256s-robust (3 executions),clean,7117488480,7117488473,7117488486,81040359080,81037593485,81043519709,124099579,123967874,124362934
+sphincs-shake256-256s-simple (3 executions),clean,3764358451,3764358431,3764358466,44857260081,44856516353,44858138896,62264803,61656689,62670229
+Memory Evaluation,,,,,,,,,,
+Key Encapsulation Schemes,,,,,,,,,,
+Scheme,Implementation,Key Generation [bytes],Encapsulation [bytes],Decapsulation [bytes],,,,,,
+bikel1,m4f,44084,32132,91384,,,,,,
+bikel1,opt,36000,25908,78588,,,,,,
+hqc-rmrs-128,clean,48852,64436,71172,,,,,,
+kyber1024,clean,15100,18772,20348,,,,,,
+kyber1024,m4fspeed,6400,7496,7512,,,,,,
+kyber1024,m4fstack,3296,3368,3392,,,,,,
+kyber1024-90s,clean,15364,19044,20620,,,,,,
+kyber1024-90s,m4fspeed,7156,8252,8268,,,,,,
+kyber1024-90s,m4fstack,4060,4132,4156,,,,,,
+kyber512,clean,6116,8780,9556,,,,,,
+kyber512,m4fspeed,4320,5424,5432,,,,,,
+kyber512,m4fstack,2248,2336,2352,,,,,,
+kyber512-90s,clean,6572,9236,10012,,,,,,
+kyber512-90s,m4fspeed,5076,6180,6188,,,,,,
+kyber512-90s,m4fstack,3012,3100,3116,,,,,,
+kyber768,clean,10212,13380,14476,,,,,,
+kyber768,m4fspeed,5344,6456,6472,,,,,,
+kyber768,m4fstack,2784,2856,2872,,,,,,
+kyber768-90s,clean,10676,13844,14940,,,,,,
+kyber768-90s,m4fspeed,6108,7220,7236,,,,,,
+kyber768-90s,m4fstack,3540,3612,3628,,,,,,
+Signature Schemes,,,,,,,,,,
+Scheme,Implementation,Key Generation [bytes],Sign [bytes],Verify [bytes],,,,,,
+dilithium2,clean,38308,51932,36220,,,,,,
+dilithium2,m4f,38408,49380,36212,,,,,,
+dilithium2aes,clean,39776,53400,37688,,,,,,
+dilithium3,clean,60844,79588,57732,,,,,,
+dilithium3,m4f,60836,68836,57724,,,,,,
+dilithium3aes,clean,62312,81056,59200,,,,,,
+dilithium5,m4f,97692,115932,92788,,,,,,
+falcon-1024,clean,36296,82532,8820,,,,,,
+falcon-1024,m4-ct,1400,2644,412,,,,,,
+falcon-1024,opt-ct,1384,2644,520,,,,,,
+falcon-1024,opt-leaktime,1368,2716,412,,,,,,
+falcon-512,clean,18416,42508,4724,,,,,,
+falcon-512,m4-ct,1312,2556,412,,,,,,
+falcon-512,opt-ct,1344,2556,412,,,,,,
+falcon-512,opt-leaktime,1296,2620,412,,,,,,
+falcon-512-tree,m4-ct,1408,2796,412,,,,,,
+falcon-512-tree,opt-ct,1384,2796,412,,,,,,
+falcon-512-tree,opt-leaktime,1344,2804,412,,,,,,
+sphincs-haraka-128f-robust,clean,3636,3728,4188,,,,,,
+sphincs-haraka-128f-simple,clean,3628,3720,4180,,,,,,
+sphincs-haraka-128s-robust,clean,3960,3920,3492,,,,,,
+sphincs-haraka-128s-simple,clean,3872,3912,3484,,,,,,
+sphincs-haraka-192f-robust,clean,5044,5192,5412,,,,,,
+sphincs-haraka-192f-simple,clean,5064,5184,5404,,,,,,
+sphincs-haraka-192s-robust,clean,5392,5352,4748,,,,,,
+sphincs-haraka-192s-simple,clean,5456,5344,4740,,,,,,
+sphincs-haraka-256f-robust,clean,7044,7120,7020,,,,,,
+sphincs-haraka-256f-simple,clean,7036,7032,7012,,,,,,
+sphincs-haraka-256s-robust,clean,7424,7264,6640,,,,,,
+sphincs-haraka-256s-simple,clean,7416,7256,6632,,,,,,
+sphincs-sha256-128f-robust,clean,2276,2340,2828,,,,,,
+sphincs-sha256-128f-simple,clean,2124,2188,2676,,,,,,
+sphincs-sha256-128s-robust,clean,2492,2560,2132,,,,,,
+sphincs-sha256-128s-simple,clean,2340,2408,1980,,,,,,
+sphincs-sha256-192f-robust,clean,3692,3840,4060,,,,,,
+sphincs-sha256-192f-simple,clean,3532,3680,3900,,,,,,
+sphincs-sha256-192s-robust,clean,4004,4000,3396,,,,,,
+sphincs-sha256-192s-simple,clean,3952,3840,3236,,,,,,
+sphincs-sha256-256f-robust,clean,5700,5776,5676,,,,,,
+sphincs-sha256-256f-simple,clean,5532,5500,5508,,,,,,
+sphincs-sha256-256s-robust,clean,6080,5920,5268,,,,,,
+sphincs-sha256-256s-simple,clean,5804,5752,5100,,,,,,
+sphincs-shake256-128f-robust,clean,2036,2200,2580,,,,,,
+sphincs-shake256-128f-simple,clean,2036,2092,2580,,,,,,
+sphincs-shake256-128s-robust,clean,2360,2312,1896,,,,,,
+sphincs-shake256-128s-simple,clean,2360,2312,1884,,,,,,
+sphincs-shake256-192f-robust,clean,3452,3592,3812,,,,,,
+sphincs-shake256-192f-simple,clean,3452,3484,3812,,,,,,
+sphincs-shake256-192s-robust,clean,3872,3752,3148,,,,,,
+sphincs-shake256-192s-simple,clean,3872,3752,3148,,,,,,
+sphincs-shake256-256f-robust,clean,5460,5528,5428,,,,,,
+sphincs-shake256-256f-simple,clean,5460,5528,5428,,,,,,
+sphincs-shake256-256s-robust,clean,5840,5672,5020,,,,,,
+sphincs-shake256-256s-simple,clean,5840,5672,5020,,,,,,
+Hashing Evaluation,,,,,,,,,,
+Key Encapsulation Schemes,,,,,,,,,,
+Scheme,Implementation,Key Generation [%],Encapsulation [%],Decapsulation [%],,,,,,
+bikel1,m4f,0.7,15.1,1.0,,,,,,
+bikel1,opt,0.3,10.1,0.4,,,,,,
+hqc-rmrs-128,clean,54.7,42.3,33.8,,,,,,
+kyber1024,clean,54.0,53.6,42.5,,,,,,
+kyber1024,m4fspeed,79.1,81.9,75.6,,,,,,
+kyber1024,m4fstack,78.8,81.4,75.0,,,,,,
+kyber1024-90s,clean,73.6,70.4,63.8,,,,,,
+kyber1024-90s,m4fspeed,70.7,72.9,67.5,,,,,,
+kyber1024-90s,m4fstack,70.2,72.2,66.8,,,,,,
+kyber512,clean,54.3,51.6,36.9,,,,,,
+kyber512,m4fspeed,79.4,82.0,72.7,,,,,,
+kyber512,m4fstack,79.4,81.7,72.4,,,,,,
+kyber512-90s,clean,68.4,62.6,52.5,,,,,,
+kyber512-90s,m4fspeed,72.2,74.2,66.2,,,,,,
+kyber512-90s,m4fstack,72.1,73.8,65.7,,,,,,
+kyber768,clean,52.4,52.3,39.5,,,,,,
+kyber768,m4fspeed,78.4,81.8,74.0,,,,,,
+kyber768,m4fstack,78.3,81.3,73.5,,,,,,
+kyber768-90s,clean,71.2,67.3,59.3,,,,,,
+kyber768-90s,m4fspeed,70.6,73.1,66.5,,,,,,
+kyber768-90s,m4fstack,70.3,72.5,65.9,,,,,,
+Signature Schemes,,,,,,,,,,
+Scheme,Implementation,Key Generation [%],Sign [%],Verify [%],,,,,,
+dilithium2,clean,68.2,38.8,61.4,,,,,,
+dilithium2,m4f,82.8,65.5,80.5,,,,,,
+dilithium2aes,clean,2.8,3.6,5.2,,,,,,
+dilithium3,clean,71.6,38.7,64.9,,,,,,
+dilithium3,m4f,85.0,64.8,82.6,,,,,,
+dilithium3aes,clean,2.3,2.4,3.7,,,,,,
+dilithium5,m4f,86.0,69.2,84.5,,,,,,
+falcon-1024,clean,8.2,0.3,26.9,,,,,,
+falcon-1024,m4-ct,11.0,0.5,34.0,,,,,,
+falcon-1024,opt-ct,11.0,0.5,34.0,,,,,,
+falcon-1024,opt-leaktime,12.8,0.5,34.0,,,,,,
+falcon-512,clean,13.1,0.4,29.3,,,,,,
+falcon-512,m4-ct,18.3,0.5,35.7,,,,,,
+falcon-512,opt-ct,18.3,0.5,35.7,,,,,,
+falcon-512,opt-leaktime,19.6,0.6,35.8,,,,,,
+falcon-512-tree,m4-ct,15.9,1.2,35.7,,,,,,
+falcon-512-tree,opt-ct,16.2,1.2,35.6,,,,,,
+falcon-512-tree,opt-leaktime,16.8,1.1,35.9,,,,,,
+sphincs-haraka-128f-robust,clean,0.0,0.0,0.0,,,,,,
+sphincs-haraka-128f-simple,clean,0.0,0.0,0.0,,,,,,
+sphincs-haraka-128s-robust,clean,0.0,0.0,0.0,,,,,,
+sphincs-haraka-128s-simple,clean,0.0,0.0,0.0,,,,,,
+sphincs-haraka-192f-robust,clean,0.0,0.0,0.0,,,,,,
+sphincs-haraka-192f-simple,clean,0.0,0.0,0.0,,,,,,
+sphincs-haraka-192s-robust,clean,0.0,0.0,0.0,,,,,,
+sphincs-haraka-192s-simple,clean,0.0,0.0,0.0,,,,,,
+sphincs-haraka-256f-robust,clean,0.0,0.0,0.0,,,,,,
+sphincs-haraka-256f-simple,clean,0.0,0.0,0.0,,,,,,
+sphincs-haraka-256s-robust,clean,0.0,0.0,0.0,,,,,,
+sphincs-haraka-256s-simple,clean,0.0,0.0,0.0,,,,,,
+sphincs-sha256-128f-robust,clean,87.7,87.7,87.8,,,,,,
+sphincs-sha256-128f-simple,clean,85.3,85.2,85.1,,,,,,
+sphincs-sha256-128s-robust,clean,87.7,87.6,87.7,,,,,,
+sphincs-sha256-128s-simple,clean,85.3,85.1,85.0,,,,,,
+sphincs-sha256-192f-robust,clean,87.2,87.4,87.6,,,,,,
+sphincs-sha256-192f-simple,clean,84.9,85.1,85.1,,,,,,
+sphincs-sha256-192s-robust,clean,87.3,87.5,87.9,,,,,,
+sphincs-sha256-192s-simple,clean,84.9,85.2,85.6,,,,,,
+sphincs-sha256-256f-robust,clean,90.9,91.0,91.3,,,,,,
+sphincs-sha256-256f-simple,clean,84.6,84.8,84.9,,,,,,
+sphincs-sha256-256s-robust,clean,91.1,91.1,91.6,,,,,,
+sphincs-sha256-256s-simple,clean,84.9,85.4,85.6,,,,,,
+sphincs-shake256-128f-robust,clean,97.4,97.4,97.5,,,,,,
+sphincs-shake256-128f-simple,clean,95.7,95.7,95.7,,,,,,
+sphincs-shake256-128s-robust,clean,97.5,97.4,97.4,,,,,,
+sphincs-shake256-128s-simple,clean,95.7,95.7,95.6,,,,,,
+sphincs-shake256-192f-robust,clean,97.4,97.3,97.4,,,,,,
+sphincs-shake256-192f-simple,clean,95.7,95.6,95.6,,,,,,
+sphincs-shake256-192s-robust,clean,97.4,97.3,97.4,,,,,,
+sphincs-shake256-192s-simple,clean,95.7,95.6,95.6,,,,,,
+sphincs-shake256-256f-robust,clean,97.4,97.3,97.4,,,,,,
+sphincs-shake256-256f-simple,clean,95.6,95.6,95.6,,,,,,
+sphincs-shake256-256s-robust,clean,97.4,97.2,97.4,,,,,,
+sphincs-shake256-256s-simple,clean,95.7,95.6,95.6,,,,,,
+Size Evaluation,,,,,,,,,,
+Key Encapsulation Schemes,,,,,,,,,,
+Scheme,Implementation,.text [bytes],.data [bytes],.bss [bytes],Total [bytes],,,,,
+bikel1,m4f,177664,24,49,177737,,,,,
+bikel1,opt,34947,24,1,34972,,,,,
+hqc-rmrs-128,clean,17116,0,0,17116,,,,,
+kyber1024,clean,6068,0,0,6068,,,,,
+kyber1024,m4fspeed,16496,0,0,16496,,,,,
+kyber1024,m4fstack,13752,0,0,13752,,,,,
+kyber1024-90s,clean,6424,0,0,6424,,,,,
+kyber1024-90s,m4fspeed,16948,0,0,16948,,,,,
+kyber1024-90s,m4fstack,13996,0,0,13996,,,,,
+kyber512,clean,4872,0,0,4872,,,,,
+kyber512,m4fspeed,15332,0,0,15332,,,,,
+kyber512,m4fstack,12820,0,0,12820,,,,,
+kyber512-90s,clean,5088,0,0,5088,,,,,
+kyber512-90s,m4fspeed,15784,0,0,15784,,,,,
+kyber512-90s,m4fstack,13052,0,0,13052,,,,,
+kyber768,clean,4888,0,0,4888,,,,,
+kyber768,m4fspeed,15540,0,0,15540,,,,,
+kyber768,m4fstack,12836,0,0,12836,,,,,
+kyber768-90s,clean,5120,0,0,5120,,,,,
+kyber768-90s,m4fspeed,16000,0,0,16000,,,,,
+kyber768-90s,m4fstack,13068,0,0,13068,,,,,
+Signature Schemes,,,,,,,,,,
+Scheme,Implementation,.text [bytes],.data [bytes],.bss [bytes],Total [bytes],,,,,
+fdilithium2,clean,7888,0,0,7888,,,,,
+dilithium2,m4f,18480,0,0,18480,,,,,
+dilithium2aes,clean,14954,0,0,14954,,,,,
+dilithium3,clean,7384,0,0,7384,,,,,
+dilithium3,m4f,19924,0,0,19924,,,,,
+dilithium3aes,clean,14442,0,0,14442,,,,,
+dilithium5,m4f,18248,0,0,18248,,,,,
+falcon-1024,clean,82281,0,0,82281,,,,,
+falcon-1024,m4-ct,83069,0,79872,162941,,,,,
+falcon-1024,opt-ct,83069,0,79872,162941,,,,,
+falcon-1024,opt-leaktime,76261,0,79872,156133,,,,,
+falcon-512,clean,82249,0,0,82249,,,,,
+falcon-512,m4-ct,83069,0,39936,123005,,,,,
+falcon-512,opt-ct,83069,0,39936,123005,,,,,
+falcon-512,opt-leaktime,76261,0,39936,116197,,,,,
+falcon-512-tree,m4-ct,82821,0,27648,110469,,,,,
+falcon-512-tree,opt-ct,82821,0,27648,110469,,,,,
+falcon-512-tree,opt-leaktime,76013,0,27648,103661,,,,,
+sphincs-haraka-128f-robust,clean,16428,0,0,16428,,,,,
+sphincs-haraka-128f-simple,clean,16276,0,0,16276,,,,,
+sphincs-haraka-128s-robust,clean,16700,0,0,16700,,,,,
+sphincs-haraka-128s-simple,clean,16552,0,0,16552,,,,,
+sphincs-haraka-192f-robust,clean,16484,0,0,16484,,,,,
+sphincs-haraka-192f-simple,clean,16300,0,0,16300,,,,,
+sphincs-haraka-192s-robust,clean,17020,0,0,17020,,,,,
+sphincs-haraka-192s-simple,clean,16836,0,0,16836,,,,,
+sphincs-haraka-256f-robust,clean,16868,0,0,16868,,,,,
+sphincs-haraka-256f-simple,clean,16624,0,0,16624,,,,,
+sphincs-haraka-256s-robust,clean,17196,0,0,17196,,,,,
+sphincs-haraka-256s-simple,clean,16952,0,0,16952,,,,,
+sphincs-sha256-128f-robust,clean,4740,0,0,4740,,,,,
+sphincs-sha256-128f-simple,clean,4504,0,0,4504,,,,,
+sphincs-sha256-128s-robust,clean,5012,0,0,5012,,,,,
+sphincs-sha256-128s-simple,clean,4776,0,0,4776,,,,,
+sphincs-sha256-192f-robust,clean,5020,0,0,5020,,,,,
+sphincs-sha256-192f-simple,clean,4668,0,0,4668,,,,,
+sphincs-sha256-192s-robust,clean,5564,0,0,5564,,,,,
+sphincs-sha256-192s-simple,clean,5208,0,0,5208,,,,,
+sphincs-sha256-256f-robust,clean,5488,0,0,5488,,,,,
+sphincs-sha256-256f-simple,clean,5048,0,0,5048,,,,,
+sphincs-sha256-256s-robust,clean,5812,0,0,5812,,,,,
+sphincs-sha256-256s-simple,clean,5368,0,0,5368,,,,,
+sphincs-shake256-128f-robust,clean,4024,0,0,4024,,,,,
+sphincs-shake256-128f-simple,clean,3884,0,0,3884,,,,,
+sphincs-shake256-128s-robust,clean,4296,0,0,4296,,,,,
+sphincs-shake256-128s-simple,clean,4152,0,0,4152,,,,,
+sphincs-shake256-192f-robust,clean,4124,0,0,4124,,,,,
+sphincs-shake256-192f-simple,clean,3952,0,0,3952,,,,,
+sphincs-shake256-192s-robust,clean,4660,0,0,4660,,,,,
+sphincs-shake256-192s-simple,clean,4488,0,0,4488,,,,,
+sphincs-shake256-256f-robust,clean,4520,0,0,4520,,,,,
+sphincs-shake256-256f-simple,clean,4308,0,0,4308,,,,,
+sphincs-shake256-256s-robust,clean,4844,0,0,4844,,,,,
+sphincs-shake256-256s-simple,clean,4636,0,0,4636,,,,,
