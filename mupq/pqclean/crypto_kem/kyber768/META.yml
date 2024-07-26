@@ -1,0 +1,47 @@
+name: Kyber768
+type: kem
+claimed-nist-level: 3
+claimed-security: IND-CCA2
+length-public-key: 1184
+length-ciphertext: 1088
+length-secret-key: 2400
+length-shared-secret: 32
+nistkat-sha256: c7e76b4b30c786b5b70c152a446e7832c1cb42b3816ec048dbeaf7041211b310
+principal-submitters:
+  - Peter Schwabe
+auxiliary-submitters:
+  - Roberto Avanzi
+  - Joppe Bos
+  - Léo Ducas
+  - Eike Kiltz
+  - Tancrède Lepoint
+  - Vadim Lyubashevsky
+  - John M. Schanck
+  - Gregor Seiler
+  - Damien Stehlé
+  - Jintai Ding
+implementations:
+    - name: clean
+      version: https://github.com/pq-crystals/kyber/commit/11d00ff1f20cfca1f72d819e5a45165c1e0a2816 via https://github.com/mkannwischer/package-pqclean/tree/0e93c032/kyber
+    - name: avx2
+      version: https://github.com/pq-crystals/kyber/commit/11d00ff1f20cfca1f72d819e5a45165c1e0a2816 via https://github.com/mkannwischer/package-pqclean/tree/0e93c032/kyber
+      supported_platforms:
+        - architecture: x86_64
+          operating_systems:
+              - Linux
+              - Darwin
+          required_flags:
+              - aes
+              - avx2
+              - bmi2
+              - popcnt
+    - name: aarch64
+      version: https://github.com/neon-ntt/neon-ntt/tree/70cdc9601b8fce9b6c0cef4faf168b6c4c4ddc4c
+      supported_platforms:
+        - architecture: arm_8
+          operating_systems:
+              - Linux
+              - Darwin
+          required_flags:
+              - asimd
+

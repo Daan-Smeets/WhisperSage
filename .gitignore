@@ -1,0 +1,12 @@
+*.o
+*.bin
+*.elf
+*.a
+*.d
+testvectors/
+benchmarks/
+__pycache__/
+bin/
+bin-host/
+compile_commands.json
+.vscode
