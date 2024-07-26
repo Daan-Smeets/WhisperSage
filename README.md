@@ -102,14 +102,12 @@ This repository contains a program designed to perform Side Channel Analysis on 
 
 
 ### Specifying parameters
+
     Before running the Jupyter Notebook file, a few parameters have to be set in `mainTest()`.
     `max_no_traces` is the number of traces that will be captured.
     `total_trace_segments` is the number of segments that the max_no_traces will be divided in.
     `folder_name` is the name of the folder that the resulting measurements will be placed in. If the folder does not exist yet, it will be created.
     `flags` is a string of letters corresponding to the cases of the FLAG_SWITCH_CASE in `mupq/crypto_kem/test.c`. Place al the letters in here of all flags that should be set. For example, `flags = "abd"` would set the flags as `case 'a':`, `case 'b':`, and `case 'd':`.
-    
-    
-    
 
 ### Importing Libraries
 
