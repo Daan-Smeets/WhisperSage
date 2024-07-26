@@ -64,7 +64,8 @@ This repository contains a program designed to perform Side Channel Analysis on 
 
 ## How To Analyse Specific Parts
 
-1. **Selecting Parts to Analyse**
+1. **Selecting Parts to Analyse:**
+
     The `mupq/crypto_kem/test.c` file is the file that will be executed. In this file, there is a FLAG_SWITCH_CASE with a number of flags corresponding to flags setup in the implementation-specific `capture_settings.c/h`. The current setup if valid for the `crypto_kem/kyber768/m4fmasked` implementation. For other implementations, new flags should be created.
     These flags can be used to selects parts of the implementation for capture, setting up the correct pins, in this way:
     ```
