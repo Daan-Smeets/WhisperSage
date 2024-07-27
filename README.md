@@ -47,7 +47,7 @@ This repository contains a program designed to perform Side Channel Analysis on 
 1. **Clone the Repository:**
 
     ```bash
-    git clone https://github.com/yourusername/pqc-sca.git
+    git clone https://github.com/Daan-Smeets/myPQM4.git
     cd pqc-sca
     ```
 
@@ -120,6 +120,10 @@ The scope and target are initialized to set up the environment for capturing pow
 - **Scope Initialization:** `scope = cw.scope()` initializes the scope for capturing power traces.
 - **Target Setup:** `target = cw.target(scope, cw.targets.SimpleSerial)` sets up the target device using the SimpleSerial protocol.
 - **Default Setup:** `scope.default_setup()` applies default settings to the scope.
+
+---
+
+##Classes 
 
 ### IncrementalStats Class
 
