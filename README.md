@@ -47,20 +47,23 @@ This repository contains a program designed to perform Side Channel Analysis on 
 1. **Clone the Repository:**
 
     ```bash
-    git clone https://github.com/Daan-Smeets/myPQM4.git
+    git clone https://github.com/Daan-Smeets/WhisperSage.git
     cd pqc-sca
     ```
 
-2. **Install Required Libraries:**
+2. **Setup Regular PQM4:**
 
-    ```bash
-    pip install numpy matplotlib scipy
-    ```
+    Follow the Setup/Installation process of regular [PQM4](https://github.com/mupq/pqm4).
 
 3. **Set Up ChipWhisperer:**
 
     Follow the [ChipWhisperer Installation Guide](https://chipwhisperer.readthedocs.io/en/latest/installation.html) to install the necessary software and drivers.
 
+4. **Install Required Libraries:**
+
+    ```bash
+    pip install numpy matplotlib scipy
+    ```
 
 ## How To Analyse Specific Parts
 
@@ -123,7 +126,7 @@ The scope and target are initialized to set up the environment for capturing pow
 
 ---
 
-##Classes TODO
+##Classes TODO REMOVE/CHANGE
 
 ### IncrementalStats Class
 

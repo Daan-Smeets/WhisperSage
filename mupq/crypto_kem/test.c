@@ -187,7 +187,6 @@ int main(void)
 {
   hal_setup(CLOCK_FAST);
 
-  // #ifdef CAPTURE_CRYSTALS
 
   // Init all the vars for the operation
   unsigned char sk_a[MUPQ_CRYPTO_SECRETKEYBYTES];
@@ -219,9 +218,6 @@ int main(void)
   //Bob derives a secret key and creates a response
   MUPQ_crypto_kem_enc(ct, key_b, pk);
 
-  // Change ciphertext to random value
-  // randombytes(ct, sizeof(ct));
-
   hal_send_str("#");
 
   /*
@@ -240,7 +236,6 @@ int main(void)
   //   abort();
   // }
 
-  // recv_USART_bytes(&flag_byte, 1);
   flag_byte = 'f';
 
   while (flag_byte != 'm' && nr_flags < 10)
@@ -248,9 +243,10 @@ int main(void)
     nr_flags = 0;
 
     // For each flag byte, run the whole program once
-    while (total_no_runs < 10 && flag_byte == 'f')
+    while (total_no_runs < 100 && flag_byte == 'f')
     {
       //FLAG_SWITCH_CASE
+      // The program uses 'd', 'e', 'f', and 'g' 
       recv_USART_bytes(&flag_byte, 1);
       switch (flag_byte)
       {
@@ -285,26 +281,10 @@ int main(void)
           break;
       }
       recv_USART_bytes(&flag_byte, 1);
-      // flag_byte = 'g';
-      ++nr_flags;
+      ++nr_flags; // Failsafe
     }
 
     received_byte = flag_byte;
-    // recv_USART_bytes(&received_byte, 1);
-
-    // int max_no_traces = 0;
-    // while (isdigit(run_nr_byte) && nr_digits < 100)
-    // {
-    //   max_no_traces = max_no_traces * 10 + (run_nr_byte - '0');
-    //   recv_USART_bytes(&run_nr_byte, 1);
-    //   ++nr_digits;
-    // }
-
-    // if(max_no_traces == 0)
-    //   max_no_traces = 1;
-
-    // cf_pb = true;
-    // cf_random = true;
     
     if (cf_uc)
     {
@@ -313,7 +293,6 @@ int main(void)
 
     while (received_byte != 'e')
     {
-      // randombytes(ct, sizeof(ct));
 
       MUPQ_crypto_kem_enc(ct, key_b, pk);
       if (received_byte == 'g') //go
@@ -321,13 +300,8 @@ int main(void)
         if (cf_random)
         {
           MUPQ_crypto_kem_keypair(pk, sk_a);
-          // randombytes(ct, sizeof(ct));
-          response_byte = 'h'; //done
         }
-        else
-        {
-          response_byte = 'd'; //done
-        }
+        response_byte = 'd'; //done
         MUPQ_crypto_kem_dec(key_a, ct, sk_a);
 
         send_USART_bytes(&response_byte, 1);
@@ -350,12 +324,8 @@ int main(void)
     cf_pr = false; // Poly reduce
     cf_pt = false; // Poly tomsg
     cf_test = false; // Poly test
-    // recv_USART_bytes(&flag_byte, 1);
     flag_byte = 'f';
-
-    // hal_send_str("After");
   }
-  // #endif
 
   return 0;
 }
