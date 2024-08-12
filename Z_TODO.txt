@@ -1,5 +1,0 @@
-Fix Flags
-
-Create template for flags
-
-Clean Main FIle

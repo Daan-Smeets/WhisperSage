@@ -126,30 +126,4 @@ The scope and target are initialized to set up the environment for capturing pow
 
 ---
 
-##Classes TODO REMOVE/CHANGE
-
-### IncrementalStats Class
-
-The `IncrementalStats` class maintains and updates statistics incrementally:
-
-- **Initialization:** The constructor initializes the class with attributes `n`, `mean`, `sum_sq`, and `variance`.
-- **Adding Traces:** The `add_trace` method adds a new trace, updating the mean and variance.
-- **Getting Statistics:** The `get_stats` method returns the current mean and variance.
-
-### Statistical Utility Functions
-
-These functions perform essential statistical operations:
-
-- **`mean(data)`**: Calculates the mean of the data.
-- **`variance(data)`**: Calculates the variance of the data.
-- **`ttest_ind_2d(sample1, sample2)`**: Performs a two-sample t-test on two-dimensional data.
-
-### Additional Functions
-
-- **`calc_ttest_data(tval_file)`**: Loads precomputed t-values from a file.
-- **`run_experiment(scope, target)`**: Captures and processes power traces from the target device.
-- **`plot_results(traces, title)`**: Plots captured power traces with a specified title.
-- **`save_results(filename, data)`**: Saves processed data to a file.
-- **`load_results(filename)`**: Loads previously saved results from a file.
-
 

@@ -187,7 +187,6 @@ int main(void)
 {
   hal_setup(CLOCK_FAST);
 
-
   // Init all the vars for the operation
   unsigned char sk_a[MUPQ_CRYPTO_SECRETKEYBYTES];
   unsigned char key_a[MUPQ_CRYPTO_BYTES], key_b[MUPQ_CRYPTO_BYTES];
