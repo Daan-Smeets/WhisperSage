@@ -10,3 +10,4 @@ bin/
 bin-host/
 compile_commands.json
 .vscode
+collected_traces_thesis/
