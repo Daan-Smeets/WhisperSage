@@ -4,7 +4,7 @@
 
 ## Overview
 
-This repository contains a program designed to perform Side Channel Analysis on Post-Quantum Cryptography schemes. The program leverages the ChipWhisperer platform to capture and analyze power traces.
+WhisperSage is a powerful tool designed for capturing and analyzing power traces from cryptographic devices using the ChipWhisperer platform. It enables researchers and engineers to perform side-channel analysis by automating the collection of power traces and providing advanced statistical methods for detecting vulnerabilities in cryptographic implementations. WhisperSage simplifies the complex process of differential power analysis by offering a streamlined workflow that includes incremental statistics, t-tests, and comprehensive trace management, all within a user-friendly Python environment.
 
 ---
 
@@ -13,14 +13,8 @@ This repository contains a program designed to perform Side Channel Analysis on 
 1. [Features](#features)
 2. [Requirements](#requirements)
 3. [Installation](#installation)
-4. [Usage](#usage)
-    - [Importing Libraries](#importing-libraries)
-    - [Initializing ChipWhisperer Scope and Target](#initializing-chipwhisperer-scope-and-target)
-    - [IncrementalStats Class](#incrementalstats-class)
-    - [Statistical Utility Functions](#statistical-utility-functions)
-    - [Additional Functions](#additional-functions)
-5. [Contributing](#contributing)
-6. [License](#license)
+4. [How To Capture Specific Parts](#how-to-capture-specific-parts)
+5. [Usage](#usage)
 
 ---
 
@@ -37,12 +31,12 @@ This repository contains a program designed to perform Side Channel Analysis on 
 ## Requirements
 
 - Python 3.x
-- Libraries: `numpy`, `matplotlib`, `scipy`, `json`, `os`
+- Libraries: `numpy`, `matplotlib`, `scipy`
 - ChipWhisperer software and hardware
 
 ---
 
-## Installation Preparations
+## Installation
 
 1. **Clone the Repository:**
 
@@ -65,13 +59,19 @@ This repository contains a program designed to perform Side Channel Analysis on 
     pip install numpy matplotlib scipy
     ```
 
-## How To Analyse Specific Parts
+---
 
-1. **Selecting Parts to Analyse:**
+## How To Capture Specific Parts	
 
-    The `mupq/crypto_kem/test.c` file is the file that will be executed. In this file, there is a FLAG_SWITCH_CASE with a number of flags corresponding to flags setup in the implementation-specific `capture_settings.c/h`. The current setup if valid for the `crypto_kem/kyber768/m4fmasked` implementation. For other implementations, new flags should be created.
-    These flags can be used to selects parts of the implementation for capture, setting up the correct pins, in this way:
-    ```
+1. **Implement Your Algorithm**
+
+    To capture power traces for a specific cryptographic algorithm, the user needs to correctly integrate their algorithm within WhisperSage. The currently implemented cryptographic schemes are stored within the `crypto_kem` and `crypto_sign` directories, following the same structure as the standard PQM4. Place the algorithm in the appropriate directory and adjust the subsequent commands accordingly. Additionally, the algorithm might require modification t properly integrates it with the existing namespaces and functions used by WhisperSage and pqm4. The relevant namespaces can be found at the top of each file of the integrated implementations.  
+
+
+2. **Selecting Parts to Capture:**
+
+    The `mupq/crypto_kem/test.c` file will be executed when WhisperSage is ran. In this file, there is a FLAG_SWITCH_CASE with a number of flags corresponding to flags set up in the implementation-specific `capture_settings.c/h`. The current setup is valid for the `crypto_kem/kyber768/m4fmasked` implementation. New implementation can re-use these flags. The following is the example for the capture flag "cf_pb". This code block should be placed around the part in the cryptographic impelementation that needs to be captured:
+    ```c
     if (cf_pb) {capture_pins_set();}
     
     // Code that should be captured
@@ -79,51 +79,64 @@ This repository contains a program designed to perform Side Channel Analysis on 
     if (cf_pb) {capture_pins_clear();}
     ```
 
-
-2. **Compile the Library:**
+3. **Compile the Library:**
 	
-    First run `make PLATFORM=[CHIPWHISPERER_PLATFORM] IMPLEMENTATION_PATH=[PATH_TO_IMPLEMENTATION] [PATH_TO_BIN]`
-    These three variables must follow specific guidlines (the commands are assumed to be ran in the main folder).
-    `CHIPWHISPERER_PLATFORM` must be one of the available ChipWhisperer platforms, see [ChipWhisperer](GITHUB LINK).
-    `PATH_TO_IMPLEMENTATION` is the path to the main folder of the desired implementation, with underscores instead of forward slashes.
-    `PATH_TO_BIN` will be the name of the bin file. This name must also folow the same file convention as the PATH_TO_IMPLEMENTATION, however with '_test' added.
-    As an example for the `m4fmasked` implementation: `make PLATFORM=cw308t-stm32f3 IMPLEMENTATION_PATH=crypto_kem/kyber768/m4fmasked bin/crypto_kem_kyber768_m4fmasked_test.bin`
+    Run the following command:
+    ```bash
+    make PLATFORM=[CHIPWHISPERER_PLATFORM] IMPLEMENTATION_PATH=[PATH_TO_IMPLEMENTATION] [PATH_TO_BIN]
+    ```
+    - `CHIPWHISPERER_PLATFORM`: Must be one of the available ChipWhisperer platforms, see [ChipWhisperer](https://github.com/newaetech/chipwhisperer).
+    - `PATH_TO_IMPLEMENTATION`: The path to the main folder of the desired implementation, with underscores instead of forward slashes.
+    - `PATH_TO_BIN`: The name of the bin file. This name must follow the same file convention as `PATH_TO_IMPLEMENTATION`, with '_test' added.
 
-3. **Flashing the Library:**
+    Example for the `m4fmasked` implementation:
+    ```bash
+    make PLATFORM=cw308t-stm32f3 IMPLEMENTATION_PATH=crypto_kem/kyber768/m4fmasked bin/crypto_kem_kyber768_m4fmasked_test.bin
+    ```
+
+4. **Flashing the Library:**
 	
-    Install `openocd`
-    To flash the `bin` file, run `openocd -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg -c "[PATH_TO_BIN] 0x08000000 verify reset exit"`
-    `CHIPWHISPERER_PLATFORM` must be one of the available ChipWhisperer platforms, see [ChipWhisperer](GITHUB LINK).
-    `PATH_TO_IMPLEMENTATION` is the path to the main folder of the desired implementation, with underscores instead of forward slashes.
-    `BIN_NAME` will be the name of the bin file. This name must be the path to the bin file (including the file name), with underscores instead of forward slashes, and with '_test' added.
-    As an example for the `m4fmasked` implementation: `openocd -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg -c "program bin/crypto_kem_kyber768_m4fmasked_test.bin 0x08000000 verify reset exit"`
-    
-    The file `run_script.sh` in the main folder has step 4 and 5 for the `m4fmasked` implementation. 
+    Install `openocd`, then run:
+    ```bash
+    openocd -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg -c "program [PATH_TO_BIN] 0x08000000 verify reset exit"
+    ```
+    - `PATH_TO_BIN`: The path to the bin file, including the file name, with underscores instead of forward slashes, and with '_test' added.
+
+    Example for the `m4fmasked` implementation:
+    ```bash
+    openocd -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg -c "program bin/crypto_kem_kyber768_m4fmasked_test.bin 0x08000000 verify reset exit"
+    ```
+
+    The file `run_script.sh` in the main folder has steps 4 and 5 for the `m4fmasked` implementation.
 
 ---
 
 ## Usage
 
-### Specifying parameters
+### Specifying Parameters
 
-Before running the Jupyter Notebook file, a few parameters have to be set in `mainTest()`.
-- `max_no_traces` is the number of traces that will be captured.
-- `total_trace_segments` is the number of segments that the max_no_traces will be divided in.
-- `folder_name` is the name of the folder that the resulting measurements will be placed in. If the folder does not exist yet, it will be created.
-- `flags` is a string of letters corresponding to the cases of the FLAG_SWITCH_CASE in `mupq/crypto_kem/test.c`. Place al the letters in here of all flags that should be set. For example, `flags = "abd"` would set the flags as `case 'a':`, `case 'b':`, and `case 'd':`.
+Before running the Jupyter Notebook file, a few parameters have to be set in `main()`.
 
-### Importing Libraries
+```text
+- `max_no_traces` is the number of traces that will be captured. A higher number of traces achieves higher accuracy at the cost of increased execution time.
 
-The program begins by importing necessary libraries, including `numpy` for numerical operations, `matplotlib` for plotting, `scipy` for scientific computations, and ChipWhisperer for capturing power traces.
+- `total_trace_segments` represents the number of segments into which the `max_no_traces` is split. Segmenting the captured traces helps manage storage usage efficiently, with each segment saved independently to reduce the memory size of individual files.
 
-### Initializing ChipWhisperer Scope and Target
+- `scope.adc.samples` is the number of samples that ChipWhisperer captures per second. This rate determines how finely the power consumption signal is recorded over time. The maximum sampling rate varies depending on the specific ChipWhisperer setup. For example, the ChipWhisperer Lite used in the research has a maximum sampling rate of 24,400 samples per second. If a user sets a sampling rate higher than what their ChipWhisperer setup can handle, a `ChipWhisperer Scope ERROR: Received fewer points than expected` exception is thrown. WhisperSage automatically calculates the number of runs needed to capture the entire trace based on the chosen sampling rate.
 
-The scope and target are initialized to set up the environment for capturing power traces:
+- `flags` is the string of flags that are set. Specific flags configure which part of the cryptographic algorithm is captured during execution. These flags link to specific code in the main test file.
 
-- **Scope Initialization:** `scope = cw.scope()` initializes the scope for capturing power traces.
-- **Target Setup:** `target = cw.target(scope, cw.targets.SimpleSerial)` sets up the target device using the SimpleSerial protocol.
-- **Default Setup:** `scope.default_setup()` applies default settings to the scope.
+- `output_directory` is the name of the directory where the results, including captured traces and t-test outputs, are stored. This organization ensures that all data are easily accessible for further analysis, replication, or review.
 
----
+### Running the Program
 
+Once all parameters are set, the program can start capturing and analyzing power traces. Simply execute the script or run the Jupyter Notebook. The program will:
 
+1. Capture the specified number of traces.
+2. Perform statistical analysis (e.g., t-tests) on the captured data.
+3. Save the results in the designated output directory.
+4. Show the results on the Jupyter Notebook screen.
+
+### Results
+
+The results of the analysis, including captured traces and statistical outputs, are saved in the output directory. Each set of traces is saved in a separate file, organized by trace segment and run. Statistical analysis results, such as t-test values, are also saved, making it easy to review and further analyze the data. A short version is displayed through Jupyter Notebook, showing if any significant leakage was found.

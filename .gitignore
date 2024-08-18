@@ -10,7 +10,3 @@ bin/
 bin-host/
 compile_commands.json
 .vscode
-collected_traces_thesis/traces_kyber_unmasked_sk/
-collected_traces_thesis/traces_kyber_masked_sk/1000_traces_24400_samples/10_run_seg/
-collected_traces_thesis/traces_kyber_masked_sk/1000_traces_24400_samples/0_run_seg/
-collected_traces_thesis/traces_kyber_masked_sk/1000_traces_24400_samples/24_run_seg/
