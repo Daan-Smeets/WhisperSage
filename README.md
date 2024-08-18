@@ -127,6 +127,7 @@ Before running the Jupyter Notebook file, a few parameters have to be set in `ma
 - `flags` is the string of flags that are set. Specific flags configure which part of the cryptographic algorithm is captured during execution. These flags link to specific code in the main test file.
 
 - `output_directory` is the name of the directory where the results, including captured traces and t-test outputs, are stored. This organization ensures that all data are easily accessible for further analysis, replication, or review.
+```
 
 ### Running the Program
 
